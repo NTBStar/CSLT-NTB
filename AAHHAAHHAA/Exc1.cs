@@ -49,7 +49,7 @@ namespace Newbie
             //to find the Size of data types
             Console.WriteLine("Size of double is: " + sizeof(double));
 
-            //
+            //to Print ASCII Value (tip: read character, print number of this char)
         }
     }
 }
