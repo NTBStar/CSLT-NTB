@@ -4,7 +4,7 @@ namespace Newbie
 {
     class Exc1
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             string enter = "Enter Your Full Name: ";
             Console.Write(enter);
@@ -50,6 +50,15 @@ namespace Newbie
             Console.WriteLine("Size of double is: " + sizeof(double));
 
             //to Print ASCII Value (tip: read character, print number of this char) 
+            char ch = Convert.ToChar(Console.ReadLine());
+            Console.WriteLine($"ASCII of your char is {(int)ch}");
+
+            // to Calculate Area of Circle
+            Console.WriteLine("Enter the radius: ");
+            double Radius = Convert.ToDouble(Console.Read());
+            Console.WriteLine($"The area of this circle is: {Radius * Radius * 3.14}");
+
+
         }
     }
 }
