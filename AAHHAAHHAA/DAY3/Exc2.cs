@@ -7,7 +7,7 @@ namespace CALCULATOR
 {
     public class Exc2
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             checked
             {
@@ -36,7 +36,25 @@ namespace CALCULATOR
                 int g = a % b;
                 Console.WriteLine($"{a}+{b}={c} \n {a}-{b}={d} \n {a}x{b}={e} \n {a}/{b}={f} \n {a} mod {b}={g}");
 
+
+
             }
         }
+        //Bai_1
+        static void Main(string[] args)
+        {
+           Console.OutputEncoding = Encoding.UTF8;
+            decimal a, b;
+            Console.Write("Nhập số điện cũ: ");
+            a = decimal.Parse(Console.ReadLine());
+            do
+            {
+                Console.Write("Nhập số điện mới: ");
+                b = decimal.Parse(Console.ReadLine());
+            }
+            while (b < a);
+        }
+        //Bai_2 Tính Tiền Điện Sinh Hoạt Gia Đình Theo Bậc Thang(EVN)
+
     }
 }
