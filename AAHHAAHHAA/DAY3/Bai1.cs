@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AAHHAAHHAA.DAY3
 {
-    internal class Exc3
+    class Bai1
     {
-        static void Main(string[] args);
+        static void Bai_01()
         {
             Console.OutputEncoding = Encoding.UTF8;
             decimal a, b;
@@ -37,6 +37,11 @@ namespace AAHHAAHHAA.DAY3
             Console.WriteLine($"Tiền điện chưa thuế: {tienDien:N0} VNĐ");
             Console.WriteLine($"Thuế VAT (8%): {thueVAT:N0} VNĐ");
             Console.WriteLine($"Tổng thanh toán: {tienDien + thueVAT:N0} VNĐ");
-
+        }
+        static void Main1(string[] args)
+        {
+        Bai_01();
         }
     }
+}
+   

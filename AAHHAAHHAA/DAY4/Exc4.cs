@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Text;
 
 namespace AAHHAAHHAA.DAY4
 {
     class Exc4
     {
-        public static void Main4(string[] args)
+        static void easyinput()
         {
             Console.OutputEncoding = Encoding.UTF8;
             Console.Write("Nhập a = ");
@@ -70,7 +71,46 @@ namespace AAHHAAHHAA.DAY4
             else Console.WriteLine($"{inputChar} is Symbol");
 
         }
+        static void hardinput(double a, double b, double c)
+        {
 
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Nhập hệ số a: "); double a = double.Parse(Console.ReadLine());
+            Console.WriteLine("Nhập hệ số b: "); double b = double.Parse(Console.ReadLine());
+            Console.WriteLine("Nhập hệ số c: "); double c = double.Parse(Console.ReadLine());
+            hardinput(a, b, c);
+            if (a == 0)
+                { if (b == 0)
+                    { if (c == 0)
+                        { Console.WriteLine("x=0"); } //abc = 0
+                        else { Console.WriteLine("Vô lý")} //a=0,b=0,c#0
+                    }
+                  else 
+                    { if (c == 0) { Console.WriteLine("x=0"); } //a=0,b#0,c=0
+                        else 
+                    {
+                        double x = -c / b;
+                        Console.WriteLine($"x={x}"); 
+                    } //a=0,b#0,c#0
+             else 
+                    { 
+                        if (b==0)
+                        {
+                            if(c == 0)
+                            {
+                                Console.WriteLine("x=0");
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                }
+
+            }
+        }
     }
 }
        
