@@ -76,7 +76,7 @@ namespace AAHHAAHHAA.DAY4
         {
            
         }
-        static void Main(string[] args)
+        static void Main3(string[] args)
         {
             checked
             {

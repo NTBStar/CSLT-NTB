@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CALCULATOR
 {
-    public class Exc2
+    public class testing
     {
         static void Main2(string[] args)
         {

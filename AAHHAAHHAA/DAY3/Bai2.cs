@@ -4,7 +4,15 @@ using System.Text;
 
 namespace AAHHAAHHAA.DAY3
 {
-    internal class Bai2
+    class Bai2
     {
+        static void Bai_04()
+        {
+
+        }
+        public static void Main(string[] args)
+        {
+           
+        }
     }
 }

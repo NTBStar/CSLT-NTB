@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace Newbie
 {
-    class Exc1
+    class random
     {
         static void Main1(string[] args)
         {
