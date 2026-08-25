@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Text;
+using System.Xml;
 
 namespace AAHHAAHHAA.DAY4
 {
@@ -73,43 +74,100 @@ namespace AAHHAAHHAA.DAY4
         }
         static void hardinput(double a, double b, double c)
         {
-
+           
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Nhập hệ số a: "); double a = double.Parse(Console.ReadLine());
-            Console.WriteLine("Nhập hệ số b: "); double b = double.Parse(Console.ReadLine());
-            Console.WriteLine("Nhập hệ số c: "); double c = double.Parse(Console.ReadLine());
-            hardinput(a, b, c);
-            if (a == 0)
-                { if (b == 0)
-                    { if (c == 0)
-                        { Console.WriteLine("x=0"); } //abc = 0
-                        else { Console.WriteLine("Vô lý")} //a=0,b=0,c#0
-                    }
-                  else 
-                    { if (c == 0) { Console.WriteLine("x=0"); } //a=0,b#0,c=0
-                        else 
+            checked
+            {
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.Write("Nhập hệ số a: "); double a = double.Parse(Console.ReadLine());
+                Console.Write("Nhập hệ số b: "); double b = double.Parse(Console.ReadLine());
+                Console.Write("Nhập hệ số c: "); double c = double.Parse(Console.ReadLine());
+                hardinput(a, b, c);
+
+                double x1; double x2;
+                if (a == 0)
+                {
+                    if (b == 0)
                     {
-                        double x = -c / b;
-                        Console.WriteLine($"x={x}"); 
-                    } //a=0,b#0,c#0
-             else 
-                    { 
-                        if (b==0)
+                        if (c == 0) //a=0,b=0,c=0
                         {
-                            if(c == 0)
+                            Console.WriteLine("x tuy y");
+                        }
+                        else //a=0,b=0,c#0
+                        {
+                            Console.WriteLine("Vo ly");
+                        }
+                    }
+                    else
+                    {
+                        if (c == 0) //a=0,b#0,c=0
+                        {
+                            Console.WriteLine("x = 0");
+                        }
+                        else //a=0,b#0,c#0
+                        {
+                            x1 = -c / b;
+                            Console.WriteLine($"x = {x1}");
+                        }
+                    }
+                }
+                else
+                {
+                    if (b == 0)
+                    {
+                        if (c == 0)
+                        {
+                            Console.WriteLine("x = 0"); //a#0,b=0,c=0
+                        }
+                        else //a#0,b=0,c#0
+                        {
+                            if (a * c < 0)
                             {
-                                Console.WriteLine("x=0");
+                                x1 = Math.Sqrt(-c / a);
+                                x2 = -(Math.Sqrt(-c / a));
+                                Console.WriteLine($"x1 = {x1} \n x2 = {x2}");
+                            }
+                            else { Console.WriteLine("Phuong trinh vo nghiem"); }
+                        }
+                    }
+                    else
+                    {
+                        if (c == 0) //a#0,b#0,c=0
+                        {
+                            Console.WriteLine("x1 = 0");
+                            x2 = -b / a;
+                            Console.WriteLine($"x2 = {x2}");
+                        }
+                        else //a#0,b#0,c#0
+                        {
+                            double delta = Math.Pow(b, 2) - 4 * a * c;
+                            if (delta < 0)
+                            {
+                                Console.WriteLine("Phuong trinh vo nghiem");
                             }
                             else
                             {
-
+                                if (delta == 0)
+                                {
+                                    x1 = -b / (2 * a);
+                                    Console.WriteLine($"x = {x1}");
+                                }
+                                else
+                                {
+                                    x1 = (-b - Math.Sqrt(delta)) / (2 * a);
+                                    x2 = (-b + Math.Sqrt(delta)) / (2 * a);
+                                    Console.WriteLine($"x1 = {x1}");
+                                    Console.WriteLine($"x2 = {x2}");
+                                }
                             }
                         }
+                    }
                 }
 
             }
+            
         }
     }
 }

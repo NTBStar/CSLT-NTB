@@ -8,8 +8,6 @@ namespace CALCULATOR
 {
     public class Exc2
     {
-        static void Bai_01()
-        //Bai_1
         static void Main2(string[] args)
         {
            Console.OutputEncoding = Encoding.UTF8;
