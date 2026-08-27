@@ -141,15 +141,34 @@ namespace AAHHAAHHAA.DAY3
                 tendem += parts[u] + " ";
             }
            string tendemaftertrim = tendem.Trim();
-            string hokhongdau = RemoveDiacritics[ho];
+            string hokhongdau = RemoveDiacritics(ho).ToLower();
+            string tendemkhongdau = RemoveDiacritics(tendem).ToLower();
+            string tenkhongdau = RemoveDiacritics(ten).ToLower();
+            string USERNAME = $"{tenkhongdau}.{hokhongdau}{tendemkhongdau}";
             Console.WriteLine($"Họ tên chuẩn hóa: {fixedname}");
-            Console.WriteLine($"Họ: {ho}");
-            Console.WriteLine($"Tên đệm: {tendemaftertrim}");
-            Console.WriteLine($"Họ: {ten}");
+            Console.Write($"Họ: {ho}");
+            Console.Write($" Tên đệm: {tendemaftertrim}");
+            Console.Write($" Tên: {ten}");
+            Console.WriteLine($"Username tạo tự động: {USERNAME}");
+            Console.WriteLine($"Email cấp phát: {USERNAME}@company.edu.vn");
         }
-        public static void Main(string[] args)
+        static string RemoveDiacritics(string s)
         {
-            Bai_06();
+            string a = "áàảãạăắằẳẵặâấầẩẫậđéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ";
+            string b = "aaaaaaaaaaaaaaaaadeeeeeeeeeeeiiiiiooooooooooooooooouuuuuuuuuuuyyyyy";
+
+            var sb = new StringBuilder();
+
+            foreach (char c in s)
+                sb.Append(a.Contains(char.ToLower(c)) ? b[a.IndexOf(char.ToLower(c))] : c);
+
+            return sb.ToString();
+        }
+         
+
+        public static void Main1(string[] args)
+        {
+            
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace AAHHAAHHAA.DAY4
 {
-    class Exc4
+    class btvnso1
     {
         static void easyinput()
         {
