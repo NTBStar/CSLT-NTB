@@ -36,7 +36,7 @@ namespace AAHHAAHHAA.DAY5
         {
             for (int i = 1; i <= 5; i++)
             {
-                for (int j = 1;j <= i; j++)
+                for (int j = 1; j <= i; j++)
                 {
                     Console.Write(j);
                 }
@@ -45,12 +45,12 @@ namespace AAHHAAHHAA.DAY5
             int hesoK = 0;
             for (int i = 1; i <= 4; i++)
             {
-                
+
                 for (int j = 1; j <= i; j++)
                 {
-                    Console.Write($"{1+hesoK} ");
+                    Console.Write($"{1 + hesoK} ");
                     hesoK++;
-                    
+
                 }
                 Console.WriteLine();
             }
@@ -61,16 +61,98 @@ namespace AAHHAAHHAA.DAY5
                 for (int j = 1; j <= i; j++)
                 {
 
-                    Console.Write($"{hesoF+1} ");
+                    Console.Write($"{hesoF + 1} ");
                     hesoF++;
                 }
 
                 Console.WriteLine();
             }
+
+        }
+        static void Bai6()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("Nhập giá trị n");
+            int giatriN = int.Parse(Console.ReadLine());
+            double sumN = 0;
+            if (giatriN >20)
+            {
+                Console.WriteLine("Số lớn quá in không nổi");
+            }
+            else 
+            {
+                Console.Write("Dãy số của bạn: ");
+                for (int i = 1;i <= giatriN;i++)
+                {
+                    sumN = sumN + ((double)1 / (double)i);
+                    Console.Write($"1/{i} ");
+                        if (i < giatriN)
+                        {
+                        Console.Write("+ ");
+                        }
+                    
+                }
+            }
+            Console.WriteLine($"Tổng của dãy này bằng: {sumN:F5}");
+        }
+        static void Bai7()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.Write("Nhập số cần kiểm tra: ");
+            int imperfectNum=int.Parse(Console.ReadLine());
+            if (imperfectNum <=1)
+            {
+                Console.WriteLine("Vui lòng nhập số lớn hơn 1");
+                return;
+            }
+            int sumUOC = 0;
+            string UOC = "";
+            for (int i = 1;i  <= imperfectNum/2;i++)
+            {
+                if (imperfectNum%i==0)
+                {
+                    sumUOC = sumUOC + i;
+                    if (i==1)
+                    {
+                        UOC+=$"{i}";
+                    }
+                    else
+                    {
+                    UOC += $"+{i}";
+                    }
+                }
+                
+            }
+            if (sumUOC == imperfectNum)
+            {
+                Console.WriteLine($"{imperfectNum} là số hoàn hảo!");
+                Console.WriteLine($"{UOC} = {imperfectNum}");
+            }
+            else { Console.WriteLine($"{imperfectNum} không phải số hoàn hảo"); }
+ 
+        }
+        static void Bai8()
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("Nhập số cần kiểm tra");
+            int notPrime = int.Parse(Console.ReadLine());
+            if (notPrime <=1)
+            {
+                Console.WriteLine("Vui lòng nhập số nguyên lớn hơn 1");
+                return;
+            }
+            for (int i = 1;i<= notPrime/2;i++)
+            {
+                if (notPrime%i==0)
+                {
+                    Console.WriteLine($"{notPrime} không phải số nguyên tố");
+                }
+            }
+
         }
         static void Main(string[] args)
         {
-            Bai4();
+         
         }
     }
 }
