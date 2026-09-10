@@ -155,8 +155,6 @@ namespace AAHHAAHHAA.DAY5
                     {
                         Primal = false;
                     }
-
-
                 }
             }
             switch (Primal)
@@ -168,42 +166,66 @@ namespace AAHHAAHHAA.DAY5
                     Console.WriteLine($"{notPrime} không phải số nguyên tố");
                     break;
             }
-            /*Liệt kê các số nguyên tố bé hơn n
+        }
+        static void Bai9()
+        {
+            //Liệt kê các số nguyên tố bé hơn n
             Console.WriteLine("Nhập giá trị lớn nhất: ");
             int primebelow = int.Parse(Console.ReadLine());
-            if (primebelow <=1) { Console.WriteLine("Vui lòng nhập số lớn hơn 1"); }
-            string songuyentoduoiN = "2";            
-            for (int i = 3; i<= primebelow;i++)
+            if (primebelow <= 1) { Console.WriteLine("Vui lòng nhập số lớn hơn 1"); }
+            string songuyentoduoiN = "2";
+            for (int i = 3; i < primebelow; i++)
             {
-                for (int j = 1; j <= i / 2; j++)
+                bool Primal2 = true;
+                for (int j = 2; j <= i / 2 && Primal2 == true; j++)
                 {
-                    if (i==2)
+                    if (i % j == 0)
                     {
-                        Primal = false;
+                        Primal2 = false;
                     }
-                    else
+                }
+                if (Primal2)
+                    songuyentoduoiN += $", {i}";
+            }
+            Console.Write($"Các số nguyên tố nhỏ hơn {primebelow} là: ");
+            Console.WriteLine(songuyentoduoiN);
+        }
+        static void Bai10 ()
+        {
+         
+        //Liệt kê n số nguyên tố đầu tiên
+            Console.WriteLine("Nhập số lượng số nguyên tố cần tìm: ");
+            int listprime = int.Parse(Console.ReadLine());
+            if (listprime < 1)
+            {
+                Console.WriteLine("Nhập số lớn hơn");
+            }
+            List<int> primes = new() { 2 };
+            int startNum = 3;
+            while (primes.Count < listprime)
+            {
+                bool Primal3 = true;
+                for (int i = 3; i * i <= startNum; i += 2)
+                {
+                    if (startNum % i == 0)
                     {
-                        Primal = true;
+                        Primal3 = false;
+                        break;
                     }
-
-                    if (i == 2 && Primal==true)
-                        songuyentoduoiN += $"{i}";
-                    else
-                        if (i> 2  && Primal==true)
-                        songuyentoduoiN += $", {i}";
-                    else { songuyentoduoiN = songuyentoduoiN; }
-                }    
-                    
+                }
+                if (Primal3)
+                { 
+                        primes.Add(startNum);
+                }
+                        startNum += 2;
                 
             }
-            Console.WriteLine(songuyentoduoiN);
-
-
-        }*/
+            Console.WriteLine($"{listprime} số nguyên tố đầu tiên là: {string.Join(", ", primes)}");
+        }
             static void Main(string[] args)
             {
-                Bai8();
+            
             }
-        }
+        
     }
 }
