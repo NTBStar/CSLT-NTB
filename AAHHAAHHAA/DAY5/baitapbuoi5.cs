@@ -222,7 +222,7 @@ namespace AAHHAAHHAA.DAY5
             }
             Console.WriteLine($"{listprime} số nguyên tố đầu tiên là: {string.Join(", ", primes)}");
         }
-            static void Main(string[] args)
+            static void Main1(string[] args)
             {
             
             }

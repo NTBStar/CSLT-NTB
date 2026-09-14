@@ -34,8 +34,34 @@ namespace AAHHAAHHAA.DAY3
             }
             Random randomOTP = new Random();
             string verifyOTP = randomOTP.Next(100000, 999999).ToString();
+            Console.WriteLine($"Mã OTP của bạn: {verifyOTP}");
             DateTime creationTime = DateTime.Now;
-            Console.WriteLine($"Mã OTP của bạn: {randomOTP}");
+            Console.Write("Nhập mã OTP (mã gồm 6 chữ số): ");
+            string userOTP = Console.ReadLine();
+            DateTime submitTime = DateTime.Now;
+            TimeSpan timedifference = submitTime - creationTime;
+            double secondsElapsed = Math.Round(timedifference.TotalSeconds,1);
+            if (userOTP.Length != 6) 
+            {
+                Console.WriteLine("LỖI ĐỊNH DẠNG");
+                return;
+            }
+            if (secondsElapsed >300)
+            {
+                Console.WriteLine("Mã OTP hết hiệu lực");
+                return;
+            }
+            if (userOTP != verifyOTP)
+            { 
+
+                Console.WriteLine("Sai mã");
+                return;
+            }
+            else 
+            {
+                Console.WriteLine("Xác thực thành công");
+                Console.WriteLine($"Bạn mất {secondsElapsed} giây để nhập mã");
+            }
 
 
         }
