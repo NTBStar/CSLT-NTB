@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using System.Xml.Schema;
 
 namespace AAHHAAHHAA.DAY6
 {
@@ -102,12 +103,91 @@ namespace AAHHAAHHAA.DAY6
             Console.WriteLine($"Trung binh cua day nay la: {Tong/count}");
             return Tong/count;
         }
+        static bool  KiemTraDoiXung (string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse( charArray );
+            if (s == new string(charArray)) return true;
+            return false;
+        }
+        static double CelciusToFarenheit (double c)
+        {
+            return (c * 1.8) + 32;
+        }
+        static int TimMin(int[] arr)
+        {
+            int MinNum = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] < MinNum) { MinNum = arr[i]; }
+            }
+            return MinNum;
+        }
+        static int TongCacChuSo (int n)
+        {
+            int tong = 0;
+            string numchar = Convert.ToString(n);
+            foreach (char c in numchar)
+            {
+                tong += c - '0';
+            }
+            return tong;
+        }
+        static void SapXepMangTangDan(int[] arr)
+        {
+            int change = arr[0];
+            for (int j = 1; j <= arr.Length; j++)
+            {
 
+                for (int i = 0; i < arr.Length - 1; i++)
+                {
+                    if (arr[i] >= arr[i + 1])
+                    {
+                        change = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = change;
+                    }
+                }
+            }
+            Console.WriteLine(string.Join(", ",arr));
+            return;
+        }
+        static void SapXepMangGíamDan(int[] arr)
+        {
+            int change = arr[arr.Length-1];
+            for (int j = 1; j <= arr.Length; j++)
+            {
+
+                for (int i = arr.Length-1; i > 0; i--)
+                {
+                    if (arr[i] >= arr[i - 1])
+                    {
+                        change = arr[i];
+                        arr[i] = arr[i - 1];
+                        arr[i - 1] = change;
+                    }
+                }
+            }
+            Console.WriteLine(string.Join(", ", arr));
+            return;
+        }
+        static string XoaTrungLap (string s)
+        {
+            StringBuilder sb = new StringBuilder();
+            char[] arr = s.ToCharArray();
+            foreach (char c in arr)
+            {
+                if (!sb.ToString().Contains(c))
+                {
+                   sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
 
         static void Main(string[] args)
         {
-          
+
         }
-        
     }
 }
