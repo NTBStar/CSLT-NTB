@@ -184,10 +184,88 @@ namespace AAHHAAHHAA.DAY6
             }
             return sb.ToString();
         }
-
+        static int UCLN (int a, int b)
+        {
+            int c = 1;
+            int sodu = 0;
+            do
+            {
+                sodu = a % b;
+                a = b;
+                b = sodu;
+            }
+            while (a%b != 0);
+            return sodu;
+        }
+        static string DecimalToBinary (int n)
+        {
+            StringBuilder sodu = new StringBuilder();
+            if (n == 0) 
+            { 
+                sodu.Append("0"); 
+            Console.WriteLine(sodu.ToString());
+                return sodu.ToString(); 
+            }
+            if (n == 1) 
+            {
+                sodu.Append("1"); 
+            Console.WriteLine(sodu.ToString());
+                return sodu.ToString(); 
+            }
+            int thuong = (n - (n % 2)) / 2;
+            int lastNum = n % 2;
+            sodu.Append(lastNum);
+            do
+            {
+                lastNum = thuong % 2;
+                thuong = thuong / 2;
+                sodu.Append(lastNum);
+            } while (thuong !=0);
+            char[] Binary = sodu.ToString().ToCharArray();
+            Array.Reverse(Binary);
+            string result = new string(Binary);
+            Console.WriteLine(result);
+            return result;
+        }
+        static bool KiemTraNamNhuan (int year)
+        {
+            if (year%400==0 && year%4==0)
+            {
+                return true;
+            }
+            else if (year%4==0 && year%100!=0)
+            {
+                return true;
+            }
+            return false;
+        }
+        static int DemSoTu (string sentence)
+        {
+            int count = 0;
+            if (string.IsNullOrWhiteSpace(sentence)) return 0;
+            char [] Chars = sentence.ToCharArray();
+            bool NewWord = false;
+            foreach (char ch in Chars)
+            {
+                if (!char.IsWhiteSpace(ch))
+                {
+                    if (!NewWord)
+                    {
+                    count++;
+                    NewWord = true;
+                    }
+                }
+                else
+                {
+                    NewWord = false;
+                }
+            }
+            return count;
+        }
         static void Main(string[] args)
         {
-
+            string sentence = "Học lập trình C# rất thú vị";
+            Console.WriteLine(DemSoTu(sentence));
         }
     }
 }
