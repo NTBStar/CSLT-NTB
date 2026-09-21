@@ -141,10 +141,15 @@ namespace AAHHAAHHAA.DAY6
             } 
             return true;
         }
+        static string SapXepTangDan(int[] arr)
+        {
+            Array.Sort (arr);
+            string result = string.Join(", ", arr);
+            return result;
+        }
         static void Main1(string[] args)
         {
-            string halo = "The quick brown fox jumps over the lazy dog";
-            Console.WriteLine($" {halo} {(checkPangrams(halo) ? "Là pangrams" : "Không phải pangrams")} ");
+
         }
     }
 }
