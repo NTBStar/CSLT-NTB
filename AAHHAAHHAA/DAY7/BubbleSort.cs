@@ -8,7 +8,7 @@ namespace AAHHAAHHAA.DAY7
 {
     public class BubbleSort
     {
-        static int[] Nhap10so ()
+        static int[] Nhap10so()
         {
             Console.OutputEncoding = Encoding.UTF8;
             int[] arr = new int[10];
@@ -21,33 +21,59 @@ namespace AAHHAAHHAA.DAY7
             Console.WriteLine();
             return arr;
         }
-        static void PrintArray (int[] arr)
+        static void PrintArray(int[] arr)
         {
             Console.WriteLine(string.Join(", ", arr));
             return;
         }
-        static void Swap (int a, int b)
+        static void Swap(ref int a, ref int b)
         {
             int temp = a;
             a = b;
-            b= temp;
+            b = temp;
             return;
         }
         static int[] BubbleSortZ(int[] arr)
         {
-            int count = 0;
-            for (int i = 0; i < arr.Length-1; i++) //Xếp tăng dần
+            for (int j = 0; j < arr.Length; j++)
             {
-                if (arr[i] > arr[i + 1]);
+
+                for (int i = 0; i < arr.Length - 1; i++) //Xếp tăng dần
+                {
+                    if (arr[i] > arr[i + 1])
+                        Swap(ref arr[i], ref arr[i + 1]);
+                }
             }
             return arr;
-                
-           
         }
-        static void Main(string[] args)
+        static int FindWord(string input, string word)
         {
-            int[] arr = Nhap10so();
-            PrintArray(arr);
+            string[] seperateWord = input.ToLower().Split(' ');
+            if (seperateWord.Length == 0) return -1;
+            for (int i = 0; i < seperateWord.Length; i++)
+            {
+                if (seperateWord[i] == word.ToLower())
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        static void Main1(string[] args)
+        {
+            Console.Write("Nhập câu: ");
+            string inputSentence = Console.ReadLine();
+            Console.Write("Nhập từ: ");
+            string inputWord = Console.ReadLine();
+            int k = FindWord(inputSentence, inputWord);
+            if (k == -1)
+            {
+                Console.WriteLine($"Không tìm thấy từ {inputWord} trong câu của bạn ");
+            }
+            else
+            {
+                Console.WriteLine($"Từ {inputWord} đã được tìm thấy ở vị trí {k + 1}");
+            }
         }
     }
 }
