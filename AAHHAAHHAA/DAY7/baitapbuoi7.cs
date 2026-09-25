@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace AAHHAAHHAA.DAY7
@@ -12,7 +13,7 @@ namespace AAHHAAHHAA.DAY7
             int[] arr = new int[n];
             return arr;
         }
-        static void gangiatriRandom (int[] arr)
+        static void gangiatriRandom(int[] arr)
         {
             Random element = new Random();
             for (int i = 0; i < arr.Length; i++)
@@ -89,7 +90,7 @@ namespace AAHHAAHHAA.DAY7
         }
         static int[] RemoveElement (int[] arr, int x)
         {
-                    ReplaceSwap(arr, x);
+            ReplaceSwap(arr, x);
             int[] temp = new int[arr.Length-1];
             for (int i = 0;i<temp.Length;i++)
             {
@@ -97,15 +98,64 @@ namespace AAHHAAHHAA.DAY7
             }
             return temp;
         }
-
-        static void Main(string[] args)
+        static int FindMax (int[] arr)
         {
-            int[] mang = new int[7] { 1, 2, 3, 4, 5, 6, 7 };
-            in_arr(mang);
-            int vitritimthay = FindIndex(mang, 4);
-            int[] result = RemoveElement(mang, vitritimthay);
-            in_arr(result);
-
+            int maxnum = arr[0];
+            for (int i = 0;i< arr.Length; i++)
+            {
+                if (arr[i]>maxnum) 
+                {
+                    maxnum = arr[i];
+                }
+            }
+            return maxnum;
+        }
+        static int FindMin(int[] arr)
+        {
+            int minnum = arr[0];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] < minnum)
+                {
+                    minnum = arr[i];
+                }
+            }
+            return minnum;
+        }
+        static int[] ReverseArray (int[] arr)
+        {
+            int temp = arr[0];
+            for (int i = 0; i < arr.Length/2; i++)
+            {
+                temp = arr[i];
+                arr[i] = arr[arr.Length - 1 - i];
+                arr[arr.Length - 1 - i] = temp;
+            }
+            return arr;
+        }
+        static string FindDuplicate (int[] arr,int x)
+        {
+            int solantimthay = 0;
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i<arr.Length;i++)
+            {
+                if (arr[i] == x) 
+                {
+                    solantimthay++;
+                    result.Append(i).Append(", ");
+                }
+            }
+                if (result.Length>0 ) { result.Length -= 2; }
+            
+            Console.WriteLine($"Values tim thay nam o vi tri so: {result}");
+            return result.ToString();
+                
+        }
+        
+        static void Main1(string[] args)
+        {
+            int[] mang = new int[7];
+            gangiatriRandom(mang);
         }
     }
 }
