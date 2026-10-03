@@ -224,7 +224,7 @@ namespace AAHHAAHHAA.DAY5
         }
             static void Main1(string[] args)
             {
-            
+            Bai4();
             }
         
     }
