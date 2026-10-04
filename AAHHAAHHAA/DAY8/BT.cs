@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AAHHAAHHAA.DAY8
 {
@@ -64,19 +65,60 @@ namespace AAHHAAHHAA.DAY8
             n = 0;
             k = 0;
             string vowel = "ueoaiUEOAI";
-            foreach (char c in s)
+            foreach (char c in s.Trim())
             {
                 if (vowel.Contains(c))
                 {
                     n++;
                 }
-                else k++;
+                else if (char.IsLetter(c)) k++;
             }
         }
+        static bool StringinString (string s, string x)
+        {
+            if (s.ToLower().Contains(x.ToLower())) return true;
+            return false;
+            
+        }
+        static int FindPosition (string s, string x)
+        {
+            int textLength = s.Length;
+            int subLength = x.Length;
+            string lowers = s.ToLower();
+            string lowerx = x.ToLower();
+
+            if (subLength > textLength) return -1;
+
+            for (int i = 0; i <= textLength - subLength; i++)
+            {
+                bool isMatch = true;
+
+                for (int j = 0; j < subLength; j++)
+                {
+                    if (lowers[i + j] != lowerx[j])
+                    {
+                        isMatch = false;
+                        break;
+                    }
+                }
+
+                if (isMatch) return i; // Tìm thấy, trả về vị trí i
+            }
+
+            return -1;
+        }
+
+        
         static void Main (string[] args)
         {
             string s = "Are you good";
-            individualChar(s);
+            string x = "are";
+            int n = 0;
+            int k = 0;
+            VowelConsonant(s,out n,out k);
+            Console.WriteLine($"{n} nguyen am, {k} phu am");
+            if (StringinString(s, x)) Console.WriteLine($"{x} có trong {s}");
+            Console.WriteLine($"tim thay o vi tri {FindPosition(s,x)}");
         }
     }
 }
