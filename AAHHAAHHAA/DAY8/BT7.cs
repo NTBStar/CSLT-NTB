@@ -5,7 +5,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace AAHHAAHHAA.DAY8
 {
-    public class BT
+    public class BT7
     {
         static int findLen(string s)
         {
@@ -107,18 +107,73 @@ namespace AAHHAAHHAA.DAY8
 
             return -1;
         }
+        static string CheckUpperLower (string s)
+        {
+            if (s.Length > 1) return "Nhap 1 ki tu";
+             for (int i = 0;i < s.Length;i++)
+             {
+                if (!char.IsLetter(s[i])) return "khong phai chu cai";
+                else if (char.IsUpper(s[i])) return "chu hoa";
+             }
+             return "chu thuong";
+        }
+        static int FindMultiPosition(string s, string x)
+        {
+            int textLength = s.Length;
+            int subLength = x.Length;
+            string lowers = s.ToLower();
+            string lowerx = x.ToLower();
+            int count = 0;
 
-        
-        static void Main (string[] args)
+            if (subLength > textLength) return -1;
+
+            for (int i = 0; i <= textLength - subLength; i++)
+            {
+                bool isMatch = true;
+
+                for (int j = 0; j < subLength; j++)
+                {
+                    if (lowers[i + j] != lowerx[j])
+                    {
+                        isMatch = false;
+                        break;
+                    }
+                }
+
+                if (isMatch) count++; // Tìm thấy, trả về vị trí i
+            }
+
+            return count;
+        }
+        static string InsertSubstring(string s, string x, string z)
+        {
+            int posiTion = FindPosition(s, x);
+            string leftS = s.Substring(0, posiTion);
+            string rightS = s.Substring(posiTion);
+            if (leftS.Length > 0 && !leftS.EndsWith(" ") && !x.StartsWith(" "))
+            {
+                leftS += " ";
+            }
+
+            // Kiểm tra và xử lý dấu cách ở bên phải (nếu insert chưa có cách ở cuối)
+            if (!z.EndsWith(" ") && !rightS.StartsWith(" "))
+            {
+                z += " ";
+            }
+            return leftS + z + rightS;
+        }
+
+        static void Main1 (string[] args)
         {
             string s = "Are you good";
-            string x = "are";
+            string x = "you";
             int n = 0;
             int k = 0;
             VowelConsonant(s,out n,out k);
             Console.WriteLine($"{n} nguyen am, {k} phu am");
             if (StringinString(s, x)) Console.WriteLine($"{x} có trong {s}");
             Console.WriteLine($"tim thay o vi tri {FindPosition(s,x)}");
+            Console.WriteLine(InsertSubstring(s, x, "hell"));
         }
     }
 }
